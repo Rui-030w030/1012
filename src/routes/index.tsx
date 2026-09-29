@@ -649,3 +649,209 @@ function Index() {
           </div>
         </div>
       </section>
+
+      {/* PRODUCT DETAILS SECTION */}
+      <section id="details" className="py-24 sm:py-36 bg-white relative">
+        <div className="max-w-[1500px] mx-auto px-6 sm:px-12 lg:px-16">
+          <div className="border-b border-black/10 pb-8 mb-16 flex flex-col md:flex-row md:items-end justify-between">
+            <div className="reveal-item">
+              <span className="font-mono text-xs uppercase tracking-ultra text-neutral-400 block mb-2">04 / SPECIFICATION</span>
+              <h2 className="text-3xl sm:text-5xl font-display uppercase tracking-widest text-black">PRODUCT DETAILS</h2>
+              <p className="font-editorial italic text-neutral-600 text-xl sm:text-2xl mt-1">Four elements of craftsmanship</p>
+            </div>
+            <div className="mt-4 md:mt-0 reveal-item text-xs font-mono text-neutral-500">CLICK ITEM TO FOCUS / HOVER TO INSPECT</div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* DETAIL 01: Collar */}
+            <div
+              className="detail-card group cursor-pointer reveal-item"
+              onClick={() => setProductModal(detailContentMap["detail-collar"])}
+            >
+              <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100 border border-neutral-200">
+                <img
+                  src={PHOTO_1}
+                  alt="襯衫式尖領細節"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute top-4 left-4 font-mono text-[11px] bg-black text-white px-2 py-0.5">01</div>
+                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-300">STRUCTURE</span>
+                  <p className="text-xs font-light mt-0.5">經典尖領剪裁與雙層門襟接合</p>
+                </div>
+              </div>
+              <div className="mt-4 flex justify-between items-baseline border-b border-neutral-200 pb-2">
+                <h4 className="font-mono text-xs sm:text-sm uppercase tracking-widest text-black group-hover:text-neutral-600 transition-colors">01 / COLLAR</h4>
+                <span className="text-[11px] font-light text-neutral-500 font-sans">襯衫式衣領</span>
+              </div>
+              <p className="text-xs text-neutral-600 font-light mt-2 leading-relaxed">硬挺俐落的翻領線條，平衡了網紗面料的柔軟飄逸，維持時裝高級剪裁骨架。</p>
+            </div>
+
+            {/* DETAIL 02: Sheer Fabric */}
+            <div
+              className="detail-card group cursor-pointer reveal-item"
+              style={{ transitionDelay: "100ms" }}
+              onClick={() => setProductModal(detailContentMap["detail-fabric"])}
+            >
+              <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100 border border-neutral-200">
+                <img
+                  src={PHOTO_2}
+                  alt="透膚網紗布料細節"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute top-4 left-4 font-mono text-[11px] bg-black text-white px-2 py-0.5">02</div>
+                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-300">TEXTILE</span>
+                  <p className="text-xs font-light mt-0.5">輕盈微透網眼與墨色暈染圖樣</p>
+                </div>
+              </div>
+              <div className="mt-4 flex justify-between items-baseline border-b border-neutral-200 pb-2">
+                <h4 className="font-mono text-xs sm:text-sm uppercase tracking-widest text-black group-hover:text-neutral-600 transition-colors">02 / SHEER FABRIC</h4>
+                <span className="text-[11px] font-light text-neutral-500 font-sans">透膚網紗</span>
+              </div>
+              <p className="text-xs text-neutral-600 font-light mt-2 leading-relaxed">透光網紗印染水墨黑霧效果，與內搭黑色背心相互映射，光線下展現層次豐富的暗黑氛圍。</p>
+            </div>
+
+            {/* DETAIL 03: Button */}
+            <div
+              className="detail-card group cursor-pointer reveal-item"
+              style={{ transitionDelay: "200ms" }}
+              onClick={() => setProductModal(detailContentMap["detail-button"])}
+            >
+              <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100 border border-neutral-200">
+                <img
+                  src={PHOTO_1}
+                  alt="前開襟排扣細節"
+                  className="w-full h-full object-cover object-[50%_45%] transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute top-4 left-4 font-mono text-[11px] bg-black text-white px-2 py-0.5">03</div>
+                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-300">HARDWARE</span>
+                  <p className="text-xs font-light mt-0.5">霧面純黑固定排扣系統</p>
+                </div>
+              </div>
+              <div className="mt-4 flex justify-between items-baseline border-b border-neutral-200 pb-2">
+                <h4 className="font-mono text-xs sm:text-sm uppercase tracking-widest text-black group-hover:text-neutral-600 transition-colors">03 / BUTTON</h4>
+                <span className="text-[11px] font-light text-neutral-500 font-sans">前開襟排扣</span>
+              </div>
+              <p className="text-xs text-neutral-600 font-light mt-2 leading-relaxed">均勻間隔的黑色精緻扣件貫穿門襟，提供全開、微開等多種著用方式，突顯層次感。</p>
+            </div>
+
+            {/* DETAIL 04: Drawstring */}
+            <div
+              className="detail-card group cursor-pointer reveal-item"
+              style={{ transitionDelay: "300ms" }}
+              onClick={() => setProductModal(detailContentMap["detail-drawstring"])}
+            >
+              <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100 border border-neutral-200">
+                <img
+                  src={PHOTO_2}
+                  alt="衣身抽繩與流蘇綁帶"
+                  className="w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute top-4 left-4 font-mono text-[11px] bg-black text-white px-2 py-0.5">04</div>
+                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-300">ADJUSTMENT</span>
+                  <p className="text-xs font-light mt-0.5">下擺隨性垂墜長版綁繩</p>
+                </div>
+              </div>
+              <div className="mt-4 flex justify-between items-baseline border-b border-neutral-200 pb-2">
+                <h4 className="font-mono text-xs sm:text-sm uppercase tracking-widest text-black group-hover:text-neutral-600 transition-colors">04 / DRAWSTRING</h4>
+                <span className="text-[11px] font-light text-neutral-500 font-sans">衣身抽繩</span>
+              </div>
+              <p className="text-xs text-neutral-600 font-light mt-2 leading-relaxed">長度延展至衣身下方的綁帶，營造走動時的動態流暢感，亦可收束改變下擺立體輪廓。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* LARGE BLACK & WHITE CALL TO ACTION */}
+      <section className="py-24 sm:py-36 bg-ink-pure text-white relative overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+          <svg className="w-[800px] h-[800px]" viewBox="0 0 400 400" fill="currentColor">
+            <path d="M200,40 C280,40 360,100 360,200 C360,300 280,360 200,360 C100,360 40,280 40,200 C40,110 120,40 200,40 Z" />
+          </svg>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <span className="font-mono text-[10px] sm:text-xs uppercase tracking-ultra text-neutral-400 block mb-4 reveal-item">
+            INK / FORM — THE CAPSULE ARCHIVE
+          </span>
+
+          <h2 className="text-3xl sm:text-6xl lg:text-7xl font-display uppercase tracking-widest text-white reveal-item">
+            DEFINE YOUR
+            <br />
+            <span className="font-editorial italic font-light text-neutral-300">shadow</span>
+          </h2>
+
+          <p className="mt-6 text-sm sm:text-base text-neutral-300 font-light max-w-lg mx-auto tracking-wide reveal-item">
+            探索黑色層次的另一種表達。
+            <br />
+            男雙層透膚網紗暈染圖樣襯衫，現已登錄品牌形象特輯。
+          </p>
+
+          <div className="mt-10 reveal-item">
+            <button
+              type="button"
+              onClick={openCheckout}
+              className="group relative inline-flex items-center justify-center px-10 py-4 bg-white text-black font-display text-xs uppercase tracking-widest2 overflow-hidden transition-all duration-300 hover:bg-neutral-200 hover:-translate-y-1 hover:shadow-2xl active:translate-y-0"
+            >
+              <span className="relative z-10 font-bold tracking-widest2">PURCHASE ARCHIVE</span>
+              <div className="absolute inset-0 bg-neutral-100 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
+            </button>
+          </div>
+
+          <div className="mt-12 flex justify-center items-center gap-8 font-mono text-[10px] text-neutral-500 uppercase tracking-widest reveal-item">
+            <span>AUTHENTIC SPECIFICATION</span>
+            <span>•</span>
+            <span>JAPANESE CONTEMPORARY EDITORIAL</span>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer id="contact" className="bg-black text-white pt-20 pb-12 border-t border-neutral-900">
+        <div className="max-w-[1500px] mx-auto px-6 sm:px-12 lg:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-neutral-900">
+            <div className="md:col-span-5 space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="font-display text-xl font-bold tracking-ultra text-white">INK</span>
+                <span className="text-xs text-neutral-600">/</span>
+                <span className="font-display text-xl font-light tracking-widest text-neutral-400">FORM</span>
+              </div>
+              <p className="text-xs text-neutral-400 font-light max-w-sm leading-relaxed">
+                以黑白潑墨與抽象時裝輪廓為基調的高端服飾展示空間。探究透膚材質、光影折射與現代剪裁的共鳴。
+              </p>
+              <div className="pt-2 font-mono text-[11px] text-neutral-500">LOCATED IN TOKYO &amp; TAIPEI</div>
+            </div>
+
+            <div className="md:col-span-3 space-y-3">
+              <div className="font-mono text-xs uppercase tracking-widest text-neutral-400 mb-4">NAVIGATION</div>
+              <ul className="space-y-2 text-xs font-light text-neutral-300">
+                <li><a href="#hero" className="hover:text-white transition-colors">HOME</a></li>
+                <li><a href="#product" className="hover:text-white transition-colors">PRODUCT INTRO</a></li>
+                <li><a href="#features" className="hover:text-white transition-colors">FEATURES</a></li>
+                <li><a href="#details" className="hover:text-white transition-colors">DETAILS</a></li>
+              </ul>
+            </div>
+
+            <div className="md:col-span-4 space-y-3">
+              <div className="font-mono text-xs uppercase tracking-widest text-neutral-400 mb-4">CONTACT &amp; SOCIAL</div>
+              <div className="space-y-2 text-xs font-light text-neutral-300">
+                <p>INSTAGRAM: <a href="#contact" className="hover:text-white underline underline-offset-4">@inkform_archive</a></p>
+                <p>EDITORIAL INQUIRY: <span className="font-mono text-neutral-400">editorial@inkform-fashion.com</span></p>
+                <p>PRESS OFFICE: <span className="font-mono text-neutral-400">+886 (02) 8700 0000</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs font-mono text-neutral-600">
+            <div>&copy; 2026 INK / FORM. ALL RIGHTS RESERVED.</div>
+            <div className="mt-4 sm:mt-0 flex gap-6 text-[11px]">
+              <span className="hover:text-neutral-400 cursor-pointer">PRIVACY</span>
+              <span className="hover:text-neutral-400 cursor-pointer">TERMS OF USE</span>
+              <span className="hover:text-neutral-400 cursor-pointer">ACCESSIBILITY</span>
+            </div>
+          </div>
+        </div>
+      </footer>
