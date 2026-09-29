@@ -421,3 +421,231 @@ function Index() {
           </div>
         </div>
       </section>
+
+      {/* IMMERSIVE BANNER with Photo 02 and Parallax */}
+      <section className="relative w-full h-[70vh] sm:h-[80vh] bg-ink-deep text-white overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0 z-0 overflow-hidden flex items-center justify-center">
+          <div className="banner-parallax-img absolute inset-0 w-full h-[125%] -top-[12%] flex items-center justify-center" data-speed="-0.15">
+            <img
+              src={PHOTO_2}
+              alt="人物雙手展開黑色半透明薄紗外層，展現襯衫排扣與下擺流蘇綁帶細節"
+              className="w-full h-full object-cover max-w-4xl opacity-40 grayscale contrast-125 select-none"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink-deep via-transparent to-ink-deep opacity-90"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-ink-deep via-transparent to-ink-deep opacity-80"></div>
+          </div>
+        </div>
+
+        <div className="absolute inset-0 pointer-events-none z-10 flex items-center justify-center opacity-20">
+          <svg className="w-full h-full max-w-4xl" viewBox="0 0 1000 400" fill="none" stroke="white" strokeWidth="0.75" strokeDasharray="8 12">
+            <path d="M-100 200 C300 100, 700 300, 1100 180" />
+            <path d="M-50 250 C350 180, 650 220, 1050 210" opacity="0.4" />
+          </svg>
+        </div>
+
+        <div className="relative z-20 text-center px-6 max-w-4xl mx-auto">
+          <div className="reveal-item font-mono text-[10px] sm:text-xs uppercase tracking-ultra text-neutral-400 mb-4">CONVERSATION OF DUALITY</div>
+
+          <h2 className="reveal-item text-3xl sm:text-5xl lg:text-7xl font-display uppercase tracking-widest leading-tight text-white">
+            BETWEEN LIGHT
+            <br />
+            <span className="font-editorial italic font-light tracking-wide text-neutral-300">and shadow</span>
+          </h2>
+
+          <p className="reveal-item mt-6 text-xs sm:text-sm text-neutral-400 max-w-md mx-auto font-light tracking-wider leading-relaxed">
+            微透網紗於光線折射中演繹深淺墨韻。外層展開如羽翼飄動，內在襯衫持守嚴謹輪廓。
+          </p>
+
+          <div className="reveal-item mt-8 flex justify-center items-center gap-6 text-[11px] font-mono text-neutral-500">
+            <span>01 // DUAL MESH</span>
+            <span>•</span>
+            <span>02 // SIDE TIES</span>
+            <span>•</span>
+            <span>03 // INK PATTERN</span>
+          </div>
+        </div>
+      </section>
+
+      {/* PRODUCT INTRODUCTION */}
+      <section id="product" className="py-24 sm:py-36 bg-white relative overflow-hidden">
+        <svg className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-96 opacity-5 pointer-events-none" viewBox="0 0 200 400" fill="currentColor">
+          <path d="M10,20 Q120,180 30,380" stroke="black" strokeWidth="12" fill="none" strokeLinecap="round" />
+          <circle cx="80" cy="90" r="12" />
+          <circle cx="120" cy="220" r="6" />
+        </svg>
+
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-16">
+          <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-black/10 pb-8 mb-16 sm:mb-24">
+            <div className="reveal-item">
+              <span className="font-mono text-xs uppercase tracking-widest text-neutral-400 block mb-2">02 / STATEMENT</span>
+              <h2 className="text-3xl sm:text-5xl font-display uppercase tracking-widest text-black">THE PRODUCT</h2>
+              <p className="text-sm font-editorial italic text-neutral-600 tracking-wider mt-1 text-xl sm:text-2xl">A layer of shadow</p>
+            </div>
+            <div className="mt-4 md:mt-0 reveal-item text-right font-mono text-xs text-neutral-400">EDITORIAL CAPSULE / AW26</div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Column: Photo 01 crop */}
+            <div className="lg:col-span-6 relative">
+              <div className="relative overflow-hidden bg-neutral-100 shadow-xl reveal-scale">
+                <img
+                  src={PHOTO_1}
+                  alt="黑色半透明材質近景細節，展示墨水暈染層次與鈕扣"
+                  className="w-full h-[520px] sm:h-[620px] object-cover object-[50%_18%] grayscale contrast-110 hover:scale-105 transition-transform duration-700 ease-out"
+                />
+
+                <div className="absolute bottom-6 left-6 sheer-backdrop px-4 py-3 border border-black/10 max-w-xs">
+                  <span className="font-mono text-[10px] text-neutral-500 uppercase tracking-widest block">COMPOSITION NOTE</span>
+                  <p className="text-xs text-black font-light mt-1">外層半透明輕薄網紗覆蓋，光影穿透時展現若隱若現的暈染肌理。</p>
+                </div>
+              </div>
+              <div className="hidden sm:block absolute -bottom-6 -right-6 w-full h-full border border-black/15 pointer-events-none -z-10"></div>
+            </div>
+
+            {/* Right Column: Narrative */}
+            <div className="lg:col-span-6 space-y-8 lg:pl-6">
+              <div className="reveal-item">
+                <span className="font-mono text-xs text-neutral-400 uppercase tracking-ultra block mb-3">DESIGN PHILOSOPHY</span>
+                <h3 className="text-2xl sm:text-3xl font-display font-normal uppercase tracking-wider text-black leading-snug">
+                  TRANSLUCENT VEIL &amp;
+                  <br />
+                  <span className="font-editorial italic font-normal text-3xl sm:text-4xl text-neutral-800">Sculptural Fluidity</span>
+                </h3>
+              </div>
+
+              <div className="reveal-item space-y-6 text-neutral-700 text-sm sm:text-base font-light leading-relaxed">
+                <p className="border-l-2 border-black pl-5 text-black font-normal text-base sm:text-lg">
+                  「黑色半透明材質在光線下形成若隱若現的層次，寬鬆輪廓搭配襯衫式結構，使服裝在靜態與動態之間產生不同的視覺變化。」
+                </p>
+                <p>摒棄傳統厚重黑階的壓迫感，此款短袖襯衫選用輕質網紗質料。如同墨滴落入清水之中緩緩化開，布面上的墨染色調與內襯素黑相映成趣。</p>
+                <p>俐落的襯衫翻領（Shirt Collar）與同色系門襟按扣相輔相成，保留紳士正裝的工藝底蘊，同時以垂墜飄逸的兩側抽繩解構嚴肅邊界。</p>
+              </div>
+
+              <div className="reveal-item pt-6 border-t border-neutral-200 grid grid-cols-2 gap-y-4 gap-x-8 font-mono text-xs">
+                <div>
+                  <span className="text-neutral-400 block text-[10px]">CATEGORY</span>
+                  <span className="text-black font-medium tracking-wide">DOUBLE LAYER SHIRT</span>
+                </div>
+                <div>
+                  <span className="text-neutral-400 block text-[10px]">SLEEVE CUT</span>
+                  <span className="text-black font-medium tracking-wide">SHORT / RELAXED DROPPED</span>
+                </div>
+                <div>
+                  <span className="text-neutral-400 block text-[10px]">CLOSURE</span>
+                  <span className="text-black font-medium tracking-wide">STUD BUTTONS / FRONT PLACKET</span>
+                </div>
+                <div>
+                  <span className="text-neutral-400 block text-[10px]">HEM FINISH</span>
+                  <span className="text-black font-medium tracking-wide">DRAWCORD / STRAP ADJUSTMENT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURES SECTION */}
+      <section id="features" className="py-24 sm:py-36 bg-neutral-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none opacity-20">
+          <svg className="absolute -top-32 right-0 w-[500px] h-[500px] text-neutral-700" viewBox="0 0 200 200" fill="currentColor">
+            <path d="M40,-60C50,-50,60,-40,65,-25C70,-10,70,10,65,25C60,40,50,50,38,60C25,70,10,75,-5,78C-20,80,-40,75,-55,65C-70,55,-80,35,-82,15C-85,-5,-80,-25,-70,-40C-60,-55,-45,-65,-30,-70C-15,-75,0,-75,15,-70Z" transform="translate(100 100)" />
+          </svg>
+          <svg className="absolute -bottom-20 left-10 w-[400px] h-[400px] text-neutral-800" viewBox="0 0 200 200" fill="currentColor">
+            <path d="M30,-45C42,-38,55,-30,62,-18C70,-5,72,12,65,25C58,40,42,50,28,58C12,65,-3,70,-20,68C-38,65,-55,55,-65,40C-75,25,-78,5,-72,-12C-68,-30,-55,-45,-40,-52C-25,-60,-10,-60,5,-58Z" transform="translate(100 100)" />
+          </svg>
+        </div>
+
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
+          <div className="border-b border-neutral-800 pb-8 mb-16 flex flex-col md:flex-row md:items-end justify-between">
+            <div className="reveal-item">
+              <span className="font-mono text-xs uppercase tracking-ultra text-neutral-500 block mb-2">03 / ARCHITECTURE</span>
+              <h2 className="text-3xl sm:text-5xl font-display uppercase tracking-widest text-white">KEY FEATURES</h2>
+              <p className="font-editorial italic text-neutral-400 text-xl sm:text-2xl mt-1">Lightweight materiality and modular forms</p>
+            </div>
+            <div className="mt-4 md:mt-0 reveal-item font-mono text-xs text-neutral-500">THREE CORE ATTRIBUTES</div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* FEATURE 01: Sheer Texture */}
+            <article className="reveal-item flex flex-col justify-between bg-black/40 border border-neutral-800 p-8 sm:p-10 relative group hover:border-neutral-600 transition-colors duration-500">
+              <div>
+                <div className="flex items-center justify-between font-mono text-xs text-neutral-500 mb-6">
+                  <span>01 / 03</span>
+                  <span className="text-white text-[10px] uppercase border border-neutral-700 px-2 py-0.5">MATERIAL</span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-display uppercase tracking-wider text-white">SHEER TEXTURE</h3>
+                <p className="font-editorial italic text-neutral-400 text-lg mb-6">半透明材質</p>
+
+                <p className="text-sm text-neutral-400 leading-relaxed font-light mb-8">
+                  輕薄透明的黑色網紗材質，在不同光線下呈現深淺漸層墨色變化。布面細膩微透，光線穿透時與內搭素黑衣身疊加出富有張力的立體層次。
+                </p>
+              </div>
+
+              <div className="relative overflow-hidden w-full h-56 bg-neutral-900 border border-neutral-800">
+                <img
+                  src={PHOTO_2}
+                  alt="透膚網紗展開時的半透明墨染層次"
+                  className="w-full h-full object-cover object-[50%_35%] grayscale contrast-125 brightness-90 group-hover:scale-105 transition-all duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
+                <div className="absolute bottom-3 left-3 font-mono text-[9px] text-neutral-400 tracking-wider">CROP // MESH TRANSPARENCY</div>
+              </div>
+            </article>
+
+            {/* FEATURE 02: Relaxed Silhouette */}
+            <article className="reveal-item flex flex-col justify-between bg-black/40 border border-neutral-800 p-8 sm:p-10 relative group hover:border-neutral-600 transition-colors duration-500" style={{ transitionDelay: "150ms" }}>
+              <div>
+                <div className="flex items-center justify-between font-mono text-xs text-neutral-500 mb-6">
+                  <span>02 / 03</span>
+                  <span className="text-white text-[10px] uppercase border border-neutral-700 px-2 py-0.5">TAILORING</span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-display uppercase tracking-wider text-white">RELAXED SILHOUETTE</h3>
+                <p className="font-editorial italic text-neutral-400 text-lg mb-6">寬鬆輪廓</p>
+
+                <p className="text-sm text-neutral-400 leading-relaxed font-light mb-8">
+                  寬鬆落肩剪裁保留自然垂墜感，短袖設計展現自在隨興。走動時微風穿過雙層外掛面料，使衣身呈現輕盈且具雕塑感的流動輪廓。
+                </p>
+              </div>
+
+              <div className="relative overflow-hidden w-full h-56 bg-neutral-900 border border-neutral-800">
+                <img
+                  src={PHOTO_1}
+                  alt="寬鬆落肩輪廓與垂墜感"
+                  className="w-full h-full object-cover object-[50%_30%] grayscale contrast-125 brightness-90 group-hover:scale-105 transition-all duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
+                <div className="absolute bottom-3 left-3 font-mono text-[9px] text-neutral-400 tracking-wider">CROP // OVERSIZED DRAPE</div>
+              </div>
+            </article>
+
+            {/* FEATURE 03: Drawstring Detail */}
+            <article className="reveal-item flex flex-col justify-between bg-black/40 border border-neutral-800 p-8 sm:p-10 relative group hover:border-neutral-600 transition-colors duration-500" style={{ transitionDelay: "300ms" }}>
+              <div>
+                <div className="flex items-center justify-between font-mono text-xs text-neutral-500 mb-6">
+                  <span>03 / 03</span>
+                  <span className="text-white text-[10px] uppercase border border-neutral-700 px-2 py-0.5">DETAIL</span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-display uppercase tracking-wider text-white">DRAWSTRING DETAIL</h3>
+                <p className="font-editorial italic text-neutral-400 text-lg mb-6">抽繩細節</p>
+
+                <p className="text-sm text-neutral-400 leading-relaxed font-light mb-8">
+                  衣身下擺與側邊設有流動感長版綁帶與抽繩結構。自然垂放時增添隨性格調，拉緊時可自由調整下擺寬度與雙層落差，創造多樣造型維度。
+                </p>
+              </div>
+
+              <div className="relative overflow-hidden w-full h-56 bg-neutral-900 border border-neutral-800">
+                <img
+                  src={PHOTO_2}
+                  alt="下擺流蘇綁帶與抽繩細節"
+                  className="w-full h-full object-cover object-[50%_85%] grayscale contrast-125 brightness-90 group-hover:scale-105 transition-all duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
+                <div className="absolute bottom-3 left-3 font-mono text-[9px] text-neutral-400 tracking-wider">CROP // STRAP &amp; CORD</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
