@@ -855,3 +855,227 @@ function Index() {
           </div>
         </div>
       </footer>
+
+      {/* PRODUCT INSPECTION MODAL */}
+      <div
+        id="productModal"
+        role="dialog"
+        aria-modal="true"
+        className={`fixed inset-0 z-50 items-center justify-center bg-black/85 backdrop-blur-md transition-all duration-300 p-4 sm:p-8 ${
+          productModal ? "flex opacity-100" : "hidden opacity-0 pointer-events-none"
+        }`}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) setProductModal(null);
+        }}
+      >
+        <div className="relative w-full max-w-4xl bg-neutral-950 border border-neutral-800 text-white p-6 sm:p-10 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col md:flex-row gap-8">
+          <button
+            type="button"
+            onClick={() => setProductModal(null)}
+            className="absolute top-4 right-4 z-30 text-neutral-300 hover:text-white px-3 py-1.5 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-xs font-mono tracking-widest focus:outline-none cursor-pointer transition-all active:scale-95"
+            aria-label="Close Modal"
+          >
+            ✕ [CLOSE]
+          </button>
+
+          <div className="w-full md:w-1/2 aspect-[3/4] bg-neutral-900 border border-neutral-800 overflow-hidden flex items-center justify-center relative">
+            <img src={PHOTO_1} alt="商品檢視" className="w-full h-full object-cover object-top" />
+          </div>
+
+          <div className="w-full md:w-1/2 flex flex-col justify-between py-2">
+            <div>
+              <span className="font-mono text-[10px] text-neutral-400 uppercase tracking-widest">PRODUCT ARCHIVE</span>
+              <h3 className="text-xl sm:text-2xl font-display uppercase tracking-wider text-white mt-1">
+                {productModal ? productModal.title : "HARE 男雙層透膚網紗暈染圖樣襯衫"}
+              </h3>
+              <p className="font-editorial italic text-neutral-400 text-lg mt-0.5">SHADOW VEIL SHORT-SLEEVE SHIRT</p>
+
+              <div className="mt-6 space-y-3 text-xs text-neutral-300 font-light leading-relaxed">
+                <p>
+                  {productModal
+                    ? productModal.desc
+                    : "本件作品由雙層結構構成，外層為黑色半透明輕薄網紗，印有不規則墨水暈染紋樣；內搭黑色純色上衣，營造深邃層次感。"}
+                </p>
+                <div className="border-t border-neutral-800 pt-3 space-y-2 font-mono text-[11px] text-neutral-400">
+                  <div className="flex justify-between"><span>COLORWAY</span><span className="text-white">BLACK WASH / 墨黑</span></div>
+                  <div className="flex justify-between"><span>COLLAR</span><span className="text-white">SHIRT COLLAR 尖領</span></div>
+                  <div className="flex justify-between"><span>CLOSURE</span><span className="text-white">FRONT SNAP BUTTONS 排扣</span></div>
+                  <div className="flex justify-between"><span>HEM ACCENT</span><span className="text-white">SIDE STRAPS / DRAWSTRING 抽繩</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 pt-4 border-t border-neutral-900 flex items-center justify-between">
+              <span className="font-mono text-xs text-neutral-500">HARE EXCLUSIVE</span>
+              <button
+                type="button"
+                onClick={() => setProductModal(null)}
+                className="px-6 py-2.5 bg-white text-black text-xs font-mono uppercase tracking-widest hover:bg-neutral-200 transition-colors cursor-pointer active:scale-95"
+              >
+                CLOSE INSPECTION
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* CHECKOUT / ORDER MODAL */}
+      <div
+        id="checkoutModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="checkoutTitle"
+        className={`fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-md transition-all duration-300 p-4 sm:p-6 overflow-y-auto ${
+          checkoutOpen ? "flex opacity-100" : "hidden opacity-0 pointer-events-none"
+        }`}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) {
+            setCheckoutOpen(false);
+            setOrderSuccess(false);
+          }
+        }}
+      >
+        <div
+          className={`relative w-full max-w-2xl bg-white border border-black/20 text-black p-6 sm:p-10 shadow-2xl my-auto transition-transform duration-300 transform ${
+            checkoutOpen ? "scale-100" : "scale-95"
+          }`}
+        >
+          <button
+            type="button"
+            onClick={() => {
+              setCheckoutOpen(false);
+              setOrderSuccess(false);
+            }}
+            className="absolute top-4 right-4 z-30 text-neutral-400 hover:text-black px-3 py-1.5 bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 text-xs font-mono tracking-widest focus:outline-none cursor-pointer transition-all active:scale-95"
+            aria-label="Close Checkout Modal"
+          >
+            ✕ [CLOSE]
+          </button>
+
+          {!orderSuccess ? (
+            <div>
+              <div className="border-b border-black/10 pb-5 mb-6">
+                <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-ultra text-neutral-400">
+                  <span>ORDER REQUEST</span>
+                  <span>•</span>
+                  <span>EDITION 2026</span>
+                </div>
+                <h3 id="checkoutTitle" className="text-xl sm:text-2xl font-display uppercase tracking-widest text-black mt-1">
+                  SHADOW VEIL SHIRT
+                </h3>
+                <p className="text-xs text-neutral-600 font-editorial italic tracking-wide mt-0.5">HARE 男雙層透膚網紗暈染圖樣襯衫上衣</p>
+
+                <div className="mt-4 flex flex-wrap items-baseline justify-between gap-2 p-3 bg-neutral-50 border border-neutral-200">
+                  <div>
+                    <span className="font-mono text-[10px] text-neutral-500 uppercase block">PRICE / 建議售價</span>
+                    <span className="font-mono text-lg font-bold tracking-tight text-black">NT$ 4,280</span>
+                    <span className="text-xs text-neutral-500 font-mono ml-1.5">(¥18,700 JPY / TAX INCL.)</span>
+                  </div>
+                  <div className="text-right">
+                    <span className="font-mono text-[10px] text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 uppercase tracking-wider">LIMITED STOCK</span>
+                    <span className="block font-mono text-[10px] text-neutral-400 mt-1">COMPLIMENTARY SHIPPING</span>
+                  </div>
+                </div>
+              </div>
+
+              <form ref={formRef} onSubmit={handleOrderSubmit} className="space-y-5">
+                <div>
+                  <label className="block font-mono text-xs uppercase tracking-widest text-neutral-700 mb-2">01 // SELECT SIZE / 尺寸規格</label>
+                  <div className="grid grid-cols-2 gap-3">
+                    {sizeOptions.map((size, i) => (
+                      <label
+                        key={size.value}
+                        className={`relative flex items-center justify-between p-3 cursor-pointer border transition-colors ${
+                          selectedSize === i
+                            ? "border-black bg-black text-white"
+                            : "border-neutral-300 bg-white text-black hover:border-black"
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="orderSize"
+                          value={size.value}
+                          className="sr-only"
+                          checked={selectedSize === i}
+                          onChange={() => setSelectedSize(i)}
+                        />
+                        <span className="text-xs font-mono font-medium tracking-wider">{size.label}</span>
+                        <span className={`text-[10px] font-mono ${selectedSize === i ? "text-neutral-300" : "text-neutral-500"}`}>{size.sub}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <label className="block font-mono text-xs uppercase tracking-widest text-neutral-700 mb-3">02 // CUSTOMER INFORMATION / 訂購者資料</label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <span className="block font-mono text-[10px] text-neutral-500 uppercase mb-1">FULL NAME / 姓名 *</span>
+                      <input type="text" required placeholder="例：林墨白" className="w-full text-xs font-sans p-3 bg-neutral-50 border border-neutral-200 focus:border-black focus:bg-white focus:outline-none transition-colors" />
+                    </div>
+                    <div>
+                      <span className="block font-mono text-[10px] text-neutral-500 uppercase mb-1">PHONE NUMBER / 聯絡電話 *</span>
+                      <input type="tel" required placeholder="0912-345-678" className="w-full text-xs font-mono p-3 bg-neutral-50 border border-neutral-200 focus:border-black focus:bg-white focus:outline-none transition-colors" />
+                    </div>
+                  </div>
+
+                  <div className="mt-3">
+                    <span className="block font-mono text-[10px] text-neutral-500 uppercase mb-1">EMAIL ADDRESS / 電子郵件 *</span>
+                    <input type="email" required placeholder="client@inkform.com" className="w-full text-xs font-mono p-3 bg-neutral-50 border border-neutral-200 focus:border-black focus:bg-white focus:outline-none transition-colors" />
+                  </div>
+
+                  <div className="mt-3">
+                    <span className="block font-mono text-[10px] text-neutral-500 uppercase mb-1">SHIPPING ADDRESS / 配送地址 *</span>
+                    <input type="text" required placeholder="縣市、行政區、街道門牌號碼及樓層" className="w-full text-xs font-sans p-3 bg-neutral-50 border border-neutral-200 focus:border-black focus:bg-white focus:outline-none transition-colors" />
+                  </div>
+
+                  <div className="mt-3">
+                    <span className="block font-mono text-[10px] text-neutral-500 uppercase mb-1">SPECIAL NOTES / 訂單備註 (選填)</span>
+                    <textarea rows={2} placeholder="特殊包裝需求、偏好配送時段等" className="w-full text-xs font-sans p-3 bg-neutral-50 border border-neutral-200 focus:border-black focus:bg-white focus:outline-none transition-colors resize-none"></textarea>
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-black/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="w-full sm:w-auto text-left">
+                    <span className="block font-mono text-[10px] text-neutral-400 uppercase">PAYMENT DUE</span>
+                    <span className="font-mono text-base font-bold text-black">NT$ 4,280</span>
+                    <span className="text-[11px] text-neutral-500 ml-1">貨到付款 / 線上刷卡審核</span>
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full sm:w-auto px-8 py-3.5 bg-black text-white text-xs font-mono uppercase tracking-widest hover:bg-neutral-800 transition-all duration-300 cursor-pointer active:scale-95 shadow-md"
+                  >
+                    CONFIRM &amp; ORDER / 確認訂購
+                  </button>
+                </div>
+              </form>
+            </div>
+          ) : (
+            <div className="text-center py-10 space-y-4">
+              <div className="w-12 h-12 mx-auto bg-black text-white flex items-center justify-center font-mono text-xl">✓</div>
+              <h4 className="text-xl sm:text-2xl font-display uppercase tracking-widest text-black">RESERVATION CONFIRMED</h4>
+              <p className="text-xs sm:text-sm font-light text-neutral-600 max-w-md mx-auto leading-relaxed">
+                感謝您的訂購。我們已收到您的「SHADOW VEIL 男雙層透膚網紗暈染圖樣襯衫」預約訂單。訂單詳情與出貨編號將即刻寄送至您的電子郵件信箱。
+              </p>
+              <div className="p-3 bg-neutral-50 border border-neutral-200 max-w-sm mx-auto font-mono text-xs text-neutral-600">
+                ORDER NO: <span className="font-bold text-black">#INK-2026-9042</span>
+              </div>
+              <div className="pt-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCheckoutOpen(false);
+                    setOrderSuccess(false);
+                  }}
+                  className="px-8 py-3 bg-black text-white text-xs font-mono uppercase tracking-widest hover:bg-neutral-800 transition-colors"
+                >
+                  RETURN TO SHOWCASE
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
