@@ -666,7 +666,7 @@ function Index() {
             {/* DETAIL 01: Collar */}
             <div
               className="detail-card group cursor-pointer reveal-item"
-              onClick={() => setProductModal(detailContentMap["detail-collar"])}
+              onClick={() => setProductModal(detailContentMap["detail-collar"] ?? null)}
             >
               <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100 border border-neutral-200">
                 <img
@@ -691,7 +691,7 @@ function Index() {
             <div
               className="detail-card group cursor-pointer reveal-item"
               style={{ transitionDelay: "100ms" }}
-              onClick={() => setProductModal(detailContentMap["detail-fabric"])}
+              onClick={() => setProductModal(detailContentMap["detail-fabric"] ?? null)}
             >
               <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100 border border-neutral-200">
                 <img
@@ -716,7 +716,7 @@ function Index() {
             <div
               className="detail-card group cursor-pointer reveal-item"
               style={{ transitionDelay: "200ms" }}
-              onClick={() => setProductModal(detailContentMap["detail-button"])}
+              onClick={() => setProductModal(detailContentMap["detail-button"] ?? null)}
             >
               <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100 border border-neutral-200">
                 <img
@@ -741,7 +741,7 @@ function Index() {
             <div
               className="detail-card group cursor-pointer reveal-item"
               style={{ transitionDelay: "300ms" }}
-              onClick={() => setProductModal(detailContentMap["detail-drawstring"])}
+              onClick={() => setProductModal(detailContentMap["detail-drawstring"] ?? null)}
             >
               <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100 border border-neutral-200">
                 <img
