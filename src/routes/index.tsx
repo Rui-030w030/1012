@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import type { FormEvent } from "react";
+import type { FormEvent, PointerEvent as ReactPointerEvent, ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import photoAsset1 from "@/assets/shadow-veil-01.jpg.asset.json";
@@ -31,6 +31,122 @@ const sizeOptions = [
   { value: "SIZE 01 (MEDIUM - CHEST 124CM)", label: "SIZE 01 (MEDIUM)", sub: "LOOSE FIT" },
   { value: "SIZE 02 (LARGE - CHEST 130CM)", label: "SIZE 02 (LARGE)", sub: "OVERSIZED" },
 ];
+
+/* ============= Wheel zoom + drag pan wrapper ============= */
+function ZoomableImage({ src, alt, overlay }: { src: string; alt: string; overlay?: ReactNode }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const viewRef = useRef({ zoom: 1, x: 0, y: 0 });
+  const dragRef = useRef<{ pointerId: number; startX: number; startY: number; baseX: number; baseY: number } | null>(null);
+  const [dragging, setDragging] = useState(false);
+  const [, setRenderTick] = useState(0);
+
+  const applyTransform = () => {
+    const el = containerRef.current;
+    const img = el?.querySelector("img");
+    if (!el || !img) return;
+    const { zoom, x, y } = viewRef.current;
+    img.style.transform = `translate(${x}px, ${y}px) scale(${zoom})`;
+  };
+
+  const clampOffset = (zoom: number, x: number, y: number) => {
+    const el = containerRef.current;
+    if (!el) return { x, y };
+    const w = el.clientWidth;
+    const h = el.clientHeight;
+    return {
+      x: Math.min(0, Math.max(w * (1 - zoom), x)),
+      y: Math.min(0, Math.max(h * (1 - zoom), y)),
+    };
+  };
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const rect = el.getBoundingClientRect();
+      const px = e.clientX - rect.left;
+      const py = e.clientY - rect.top;
+      const view = viewRef.current;
+      const dy = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? 100 : 1);
+      const nextZoom = Math.min(5, Math.max(1, view.zoom * Math.exp(-dy * 0.0015)));
+      if (nextZoom === view.zoom) return;
+      const k = nextZoom / view.zoom;
+      const clamped = clampOffset(nextZoom, px - (px - view.x) * k, py - (py - view.y) * k);
+      viewRef.current = { zoom: nextZoom, ...clamped };
+      applyTransform();
+      setRenderTick((t) => t + 1);
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const reset = () => {
+    viewRef.current = { zoom: 1, x: 0, y: 0 };
+    applyTransform();
+    setRenderTick((t) => t + 1);
+  };
+
+  const onPointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
+    if (viewRef.current.zoom <= 1) return;
+    dragRef.current = {
+      pointerId: e.pointerId,
+      startX: e.clientX,
+      startY: e.clientY,
+      baseX: viewRef.current.x,
+      baseY: viewRef.current.y,
+    };
+    e.currentTarget.setPointerCapture(e.pointerId);
+    setDragging(true);
+  };
+
+  const onPointerMove = (e: ReactPointerEvent<HTMLDivElement>) => {
+    const d = dragRef.current;
+    if (!d || d.pointerId !== e.pointerId) return;
+    const clamped = clampOffset(viewRef.current.zoom, d.baseX + (e.clientX - d.startX), d.baseY + (e.clientY - d.startY));
+    viewRef.current = { ...viewRef.current, ...clamped };
+    applyTransform();
+  };
+
+  const endDrag = (e: ReactPointerEvent<HTMLDivElement>) => {
+    if (dragRef.current?.pointerId !== e.pointerId) return;
+    dragRef.current = null;
+    setDragging(false);
+  };
+
+  const { zoom } = viewRef.current;
+
+  return (
+    <div
+      ref={containerRef}
+      className={`relative overflow-hidden bg-neutral-100 touch-none select-none ${
+        zoom > 1 ? (dragging ? "cursor-grabbing" : "cursor-grab") : "cursor-zoom-in"
+      }`}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={endDrag}
+      onPointerCancel={endDrag}
+      onDoubleClick={reset}
+    >
+      <img
+        src={src}
+        alt={alt}
+        draggable={false}
+        className="w-full h-[520px] sm:h-[620px] object-cover object-[50%_18%] grayscale contrast-110"
+        style={{ transformOrigin: "0 0", willChange: "transform" }}
+      />
+      {overlay}
+      <div
+        className={`absolute top-4 right-4 sheer-backdrop border border-black/10 px-3 py-1.5 font-mono text-[10px] tracking-widest text-neutral-600 pointer-events-none ${
+          zoom > 1 ? "opacity-100" : "opacity-70"
+        }`}
+      >
+        {zoom > 1 ? `${Math.round(zoom * 100)}% · 拖曳移動 · 雙擊還原` : "滾輪縮放 / SCROLL TO ZOOM"}
+      </div>
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -475,19 +591,19 @@ function Index() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Column: Photo 01 crop */}
+            {/* Left Column: Photo 01 crop — wheel zoom + drag pan */}
             <div className="lg:col-span-6 relative">
-              <div className="relative overflow-hidden bg-neutral-100 shadow-xl reveal-scale">
-                <img
+              <div className="relative shadow-xl reveal-scale">
+                <ZoomableImage
                   src={PHOTO_1}
                   alt="黑色半透明材質近景細節，展示墨水暈染層次與鈕扣"
-                  className="w-full h-[520px] sm:h-[620px] object-cover object-[50%_18%] grayscale contrast-110 hover:scale-105 transition-transform duration-700 ease-out"
+                  overlay={
+                    <div className="absolute bottom-6 left-6 sheer-backdrop px-4 py-3 border border-black/10 max-w-xs">
+                      <span className="font-mono text-[10px] text-neutral-500 uppercase tracking-widest block">COMPOSITION NOTE</span>
+                      <p className="text-xs text-black font-light mt-1">外層半透明輕薄網紗覆蓋，光影穿透時展現若隱若現的暈染肌理。</p>
+                    </div>
+                  }
                 />
-
-                <div className="absolute bottom-6 left-6 sheer-backdrop px-4 py-3 border border-black/10 max-w-xs">
-                  <span className="font-mono text-[10px] text-neutral-500 uppercase tracking-widest block">COMPOSITION NOTE</span>
-                  <p className="text-xs text-black font-light mt-1">外層半透明輕薄網紗覆蓋，光影穿透時展現若隱若現的暈染肌理。</p>
-                </div>
               </div>
               <div className="hidden sm:block absolute -bottom-6 -right-6 w-full h-full border border-black/15 pointer-events-none -z-10"></div>
             </div>
