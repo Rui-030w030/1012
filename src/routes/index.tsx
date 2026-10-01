@@ -162,8 +162,7 @@ function Index() {
     { href: "#hero", num: "01", label: "HOME" },
     { href: "#product", num: "02", label: "PRODUCT" },
     { href: "#features", num: "03", label: "FEATURES" },
-    { href: "#details", num: "04", label: "DETAILS" },
-    { href: "#contact", num: "05", label: "CONTACT" },
+    { href: "#contact", num: "04", label: "CONTACT" },
   ];
 
   return (
@@ -316,15 +315,6 @@ function Index() {
                   <div className="absolute inset-0 bg-neutral-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
                 </button>
 
-                <a
-                  href="#details"
-                  className="group inline-flex items-center justify-center px-7 py-3.5 border border-black/80 bg-white text-black text-xs uppercase tracking-widest transition-all duration-300 hover:bg-black hover:text-white hover:-translate-y-0.5"
-                >
-                  <span className="tracking-widest font-medium">VIEW DETAILS</span>
-                  <svg className="ml-2 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                  </svg>
-                </a>
               </div>
 
               <div className="mt-10 pt-6 border-t border-black/10 grid grid-cols-3 gap-6 max-w-md reveal-item" style={{ transitionDelay: "450ms" }}>
