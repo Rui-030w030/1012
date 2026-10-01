@@ -162,8 +162,7 @@ function Index() {
     { href: "#hero", num: "01", label: "HOME" },
     { href: "#product", num: "02", label: "PRODUCT" },
     { href: "#features", num: "03", label: "FEATURES" },
-    { href: "#details", num: "04", label: "DETAILS" },
-    { href: "#contact", num: "05", label: "CONTACT" },
+    { href: "#contact", num: "04", label: "CONTACT" },
   ];
 
   return (
@@ -316,15 +315,6 @@ function Index() {
                   <div className="absolute inset-0 bg-neutral-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
                 </button>
 
-                <a
-                  href="#details"
-                  className="group inline-flex items-center justify-center px-7 py-3.5 border border-black/80 bg-white text-black text-xs uppercase tracking-widest transition-all duration-300 hover:bg-black hover:text-white hover:-translate-y-0.5"
-                >
-                  <span className="tracking-widest font-medium">VIEW DETAILS</span>
-                  <svg className="ml-2 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                  </svg>
-                </a>
               </div>
 
               <div className="mt-10 pt-6 border-t border-black/10 grid grid-cols-3 gap-6 max-w-md reveal-item" style={{ transitionDelay: "450ms" }}>
@@ -650,122 +640,6 @@ function Index() {
         </div>
       </section>
 
-      {/* PRODUCT DETAILS SECTION */}
-      <section id="details" className="py-24 sm:py-36 bg-white relative">
-        <div className="max-w-[1500px] mx-auto px-6 sm:px-12 lg:px-16">
-          <div className="border-b border-black/10 pb-8 mb-16 flex flex-col md:flex-row md:items-end justify-between">
-            <div className="reveal-item">
-              <span className="font-mono text-xs uppercase tracking-ultra text-neutral-400 block mb-2">04 / SPECIFICATION</span>
-              <h2 className="text-3xl sm:text-5xl font-display uppercase tracking-widest text-black">PRODUCT DETAILS</h2>
-              <p className="font-editorial italic text-neutral-600 text-xl sm:text-2xl mt-1">Four elements of craftsmanship</p>
-            </div>
-            <div className="mt-4 md:mt-0 reveal-item text-xs font-mono text-neutral-500">CLICK ITEM TO FOCUS / HOVER TO INSPECT</div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* DETAIL 01: Collar */}
-            <div
-              className="detail-card group cursor-pointer reveal-item"
-              onClick={() => setProductModal(detailContentMap["detail-collar"] ?? null)}
-            >
-              <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100 border border-neutral-200">
-                <img
-                  src={PHOTO_1}
-                  alt="襯衫式尖領細節"
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute top-4 left-4 font-mono text-[11px] bg-black text-white px-2 py-0.5">01</div>
-                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-300">STRUCTURE</span>
-                  <p className="text-xs font-light mt-0.5">經典尖領剪裁與雙層門襟接合</p>
-                </div>
-              </div>
-              <div className="mt-4 flex justify-between items-baseline border-b border-neutral-200 pb-2">
-                <h4 className="font-mono text-xs sm:text-sm uppercase tracking-widest text-black group-hover:text-neutral-600 transition-colors">01 / COLLAR</h4>
-                <span className="text-[11px] font-light text-neutral-500 font-sans">襯衫式衣領</span>
-              </div>
-              <p className="text-xs text-neutral-600 font-light mt-2 leading-relaxed">硬挺俐落的翻領線條，平衡了網紗面料的柔軟飄逸，維持時裝高級剪裁骨架。</p>
-            </div>
-
-            {/* DETAIL 02: Sheer Fabric */}
-            <div
-              className="detail-card group cursor-pointer reveal-item"
-              style={{ transitionDelay: "100ms" }}
-              onClick={() => setProductModal(detailContentMap["detail-fabric"] ?? null)}
-            >
-              <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100 border border-neutral-200">
-                <img
-                  src={PHOTO_2}
-                  alt="透膚網紗布料細節"
-                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute top-4 left-4 font-mono text-[11px] bg-black text-white px-2 py-0.5">02</div>
-                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-300">TEXTILE</span>
-                  <p className="text-xs font-light mt-0.5">輕盈微透網眼與墨色暈染圖樣</p>
-                </div>
-              </div>
-              <div className="mt-4 flex justify-between items-baseline border-b border-neutral-200 pb-2">
-                <h4 className="font-mono text-xs sm:text-sm uppercase tracking-widest text-black group-hover:text-neutral-600 transition-colors">02 / SHEER FABRIC</h4>
-                <span className="text-[11px] font-light text-neutral-500 font-sans">透膚網紗</span>
-              </div>
-              <p className="text-xs text-neutral-600 font-light mt-2 leading-relaxed">透光網紗印染水墨黑霧效果，與內搭黑色背心相互映射，光線下展現層次豐富的暗黑氛圍。</p>
-            </div>
-
-            {/* DETAIL 03: Button */}
-            <div
-              className="detail-card group cursor-pointer reveal-item"
-              style={{ transitionDelay: "200ms" }}
-              onClick={() => setProductModal(detailContentMap["detail-button"] ?? null)}
-            >
-              <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100 border border-neutral-200">
-                <img
-                  src={PHOTO_1}
-                  alt="前開襟排扣細節"
-                  className="w-full h-full object-cover object-[50%_45%] transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute top-4 left-4 font-mono text-[11px] bg-black text-white px-2 py-0.5">03</div>
-                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-300">HARDWARE</span>
-                  <p className="text-xs font-light mt-0.5">霧面純黑固定排扣系統</p>
-                </div>
-              </div>
-              <div className="mt-4 flex justify-between items-baseline border-b border-neutral-200 pb-2">
-                <h4 className="font-mono text-xs sm:text-sm uppercase tracking-widest text-black group-hover:text-neutral-600 transition-colors">03 / BUTTON</h4>
-                <span className="text-[11px] font-light text-neutral-500 font-sans">前開襟排扣</span>
-              </div>
-              <p className="text-xs text-neutral-600 font-light mt-2 leading-relaxed">均勻間隔的黑色精緻扣件貫穿門襟，提供全開、微開等多種著用方式，突顯層次感。</p>
-            </div>
-
-            {/* DETAIL 04: Drawstring */}
-            <div
-              className="detail-card group cursor-pointer reveal-item"
-              style={{ transitionDelay: "300ms" }}
-              onClick={() => setProductModal(detailContentMap["detail-drawstring"] ?? null)}
-            >
-              <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100 border border-neutral-200">
-                <img
-                  src={PHOTO_2}
-                  alt="衣身抽繩與流蘇綁帶"
-                  className="w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute top-4 left-4 font-mono text-[11px] bg-black text-white px-2 py-0.5">04</div>
-                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-300">ADJUSTMENT</span>
-                  <p className="text-xs font-light mt-0.5">下擺隨性垂墜長版綁繩</p>
-                </div>
-              </div>
-              <div className="mt-4 flex justify-between items-baseline border-b border-neutral-200 pb-2">
-                <h4 className="font-mono text-xs sm:text-sm uppercase tracking-widest text-black group-hover:text-neutral-600 transition-colors">04 / DRAWSTRING</h4>
-                <span className="text-[11px] font-light text-neutral-500 font-sans">衣身抽繩</span>
-              </div>
-              <p className="text-xs text-neutral-600 font-light mt-2 leading-relaxed">長度延展至衣身下方的綁帶，營造走動時的動態流暢感，亦可收束改變下擺立體輪廓。</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* LARGE BLACK & WHITE CALL TO ACTION */}
       <section className="py-24 sm:py-36 bg-ink-pure text-white relative overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
           <svg className="w-[800px] h-[800px]" viewBox="0 0 400 400" fill="currentColor">
@@ -831,7 +705,6 @@ function Index() {
                 <li><a href="#hero" className="hover:text-white transition-colors">HOME</a></li>
                 <li><a href="#product" className="hover:text-white transition-colors">PRODUCT INTRO</a></li>
                 <li><a href="#features" className="hover:text-white transition-colors">FEATURES</a></li>
-                <li><a href="#details" className="hover:text-white transition-colors">DETAILS</a></li>
               </ul>
             </div>
 
