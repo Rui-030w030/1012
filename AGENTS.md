@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep product-photo zoom isolated in its image wrapper with a native non-passive wheel listener, so zoom remains cursor-anchored without scrolling the page.
