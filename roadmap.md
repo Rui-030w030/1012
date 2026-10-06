@@ -1,4 +1,4 @@
 # Tasks
-- [ ] Verify selected product image wheel zoom.
-- [ ] Remove the selected garment blueprint window.
-- [ ] Resolve existing preview error and verify the page.
+- [x] Verify selected product image wheel zoom.
+- [x] Remove the selected garment blueprint window.
+- [x] Resolve existing preview error and verify the page.
