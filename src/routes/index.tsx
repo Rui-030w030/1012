@@ -449,73 +449,7 @@ function Index() {
               </div>
             </div>
 
-            {/* Center-Right: Editorial Vector Blueprint */}
-            <div className="hidden xl:flex lg:col-span-5 justify-center items-center reveal-scale" style={{ transitionDelay: "300ms" }}>
-              <div className="relative w-full max-w-[370px] bg-white/80 backdrop-blur-md border border-black/[0.12] p-6 shadow-xl group hover:border-black/40 transition-all duration-500">
-                <div className="flex justify-between items-start border-b border-black/10 pb-3 mb-4">
-                  <div>
-                    <span className="font-mono text-[9px] uppercase tracking-ultra text-neutral-400 block">GARMENT BLUEPRINT</span>
-                    <span className="font-mono text-xs font-semibold tracking-wider text-black">HARE // SHADOW VEIL</span>
-                  </div>
-                  <span className="font-mono text-[9px] px-1.5 py-0.5 bg-black text-white uppercase tracking-widest">FIG. 001</span>
-                </div>
 
-                <div className="relative w-full aspect-[4/5] flex items-center justify-center overflow-hidden bg-neutral-50/60 border border-neutral-100">
-                  <svg viewBox="0 0 400 500" className="w-full h-full p-2 text-black transition-transform duration-700 ease-out group-hover:scale-105" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="向量圖：HARE男雙層透膚網紗暈染圖樣襯衫結構圖">
-                    <path d="M50 0 V500 M150 0 V500 M250 0 V500 M350 0 V500" stroke="#000000" strokeWidth="0.3" strokeDasharray="3 6" opacity="0.12" />
-                    <path d="M0 100 H400 M0 200 H400 M0 300 H400 M0 400 H400" stroke="#000000" strokeWidth="0.3" strokeDasharray="3 6" opacity="0.12" />
-
-                    <path d="M145 100 L120 170 L140 370 L260 370 L280 170 L255 100 Z" fill="#0a0a0a" fillOpacity="0.92" stroke="#000000" strokeWidth="1.2" />
-                    <path d="M145 92 L75 145 L50 240 L115 255 L110 395 C150 402, 250 402, 290 395 L285 255 L350 240 L325 145 L255 92 Z" fill="#111111" fillOpacity="0.3" stroke="#111111" strokeWidth="1.5" strokeLinejoin="round" />
-                    <ellipse cx="160" cy="220" rx="65" ry="85" fill="#000000" fillOpacity="0.25" />
-                    <ellipse cx="250" cy="260" rx="55" ry="90" fill="#000000" fillOpacity="0.22" />
-
-                    <path d="M145 92 L200 130 L255 92 L230 76 L200 84 L170 76 Z" fill="#0c0c0c" stroke="#000000" strokeWidth="1.5" />
-                    <path d="M145 92 L185 140 L200 130 Z" fill="#181818" stroke="#000000" strokeWidth="1" />
-                    <path d="M255 92 L215 140 L200 130 Z" fill="#181818" stroke="#000000" strokeWidth="1" />
-
-                    <line x1="200" y1="130" x2="200" y2="395" stroke="#000000" strokeWidth="1.5" strokeDasharray="6 3" />
-                    <rect x="194" y="130" width="12" height="265" fill="#111111" fillOpacity="0.2" stroke="#000000" strokeWidth="0.8" />
-                    <circle cx="200" cy="155" r="3" fill="#ffffff" stroke="#000000" strokeWidth="1" />
-                    <circle cx="200" cy="205" r="3" fill="#ffffff" stroke="#000000" strokeWidth="1" />
-                    <circle cx="200" cy="255" r="3" fill="#ffffff" stroke="#000000" strokeWidth="1" />
-                    <circle cx="200" cy="305" r="3" fill="#ffffff" stroke="#000000" strokeWidth="1" />
-                    <circle cx="200" cy="355" r="3" fill="#ffffff" stroke="#000000" strokeWidth="1" />
-
-                    <path d="M120 170 Q70 290 55 350 L110 395" stroke="#000000" strokeWidth="1" strokeDasharray="2 2" fill="none" opacity="0.6" />
-                    <path d="M280 170 Q330 290 345 350 L290 395" stroke="#000000" strokeWidth="1" strokeDasharray="2 2" fill="none" opacity="0.6" />
-                    <line x1="100" y1="130" x2="68" y2="245" stroke="#000000" strokeWidth="1" opacity="0.5" />
-                    <line x1="300" y1="130" x2="332" y2="245" stroke="#000000" strokeWidth="1" opacity="0.5" />
-                    <path d="M50 240 L115 255" stroke="#000000" strokeWidth="1.8" />
-                    <path d="M350 240 L285 255" stroke="#000000" strokeWidth="1.8" />
-
-                    <path d="M110 395 C95 430, 85 455, 92 485" stroke="#000000" strokeWidth="2" strokeLinecap="round" fill="none" />
-                    <path d="M118 395 C110 425, 105 450, 112 475" stroke="#000000" strokeWidth="1.2" strokeLinecap="round" fill="none" />
-                    <path d="M290 395 C305 430, 315 455, 308 485" stroke="#000000" strokeWidth="2" strokeLinecap="round" fill="none" />
-                    <path d="M282 395 C290 425, 295 450, 288 475" stroke="#000000" strokeWidth="1.2" strokeLinecap="round" fill="none" />
-
-                    <g opacity="0.65">
-                      <circle cx="200" cy="88" r="2" fill="#000000" />
-                      <path d="M200 88 L235 55 H275" stroke="#000000" strokeWidth="0.8" />
-                      <text x="280" y="58" fontFamily="monospace" fontSize="8" fill="#000000" letterSpacing="1">SHIRT COLLAR</text>
-                      <circle cx="95" cy="225" r="2" fill="#000000" />
-                      <path d="M95 225 L60 210 H15" stroke="#000000" strokeWidth="0.8" />
-                      <text x="15" y="205" fontFamily="monospace" fontSize="8" fill="#000000" letterSpacing="1">SHEER MESH</text>
-                      <circle cx="92" cy="460" r="2" fill="#000000" />
-                      <path d="M92 460 L60 460 H15" stroke="#000000" strokeWidth="0.8" />
-                      <text x="15" y="455" fontFamily="monospace" fontSize="8" fill="#000000" letterSpacing="1">STRAP DETAIL</text>
-                    </g>
-                  </svg>
-
-                  <div className="absolute bottom-2 right-2 font-mono text-[8px] text-neutral-400 tracking-wider">HARE // 2026 ARCHIVE</div>
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-black/10 flex justify-between items-center text-[10px] font-mono text-neutral-500">
-                  <span className="tracking-widest">PRODUCT VECTOR REF</span>
-                  <span className="text-black font-medium">SHEER / DYED INK</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
