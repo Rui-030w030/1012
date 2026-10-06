@@ -137,13 +137,6 @@ function ZoomableImage({ src, alt, overlay }: { src: string; alt: string; overla
         style={{ transformOrigin: "0 0", willChange: "transform" }}
       />
       {overlay}
-      <div
-        className={`absolute top-4 right-4 sheer-backdrop border border-black/10 px-3 py-1.5 font-mono text-[10px] tracking-widest text-neutral-600 pointer-events-none ${
-          zoom > 1 ? "opacity-100" : "opacity-70"
-        }`}
-      >
-        {zoom > 1 ? `${Math.round(zoom * 100)}% · 拖曳移動 · 雙擊還原` : "滾輪縮放 / SCROLL TO ZOOM"}
-      </div>
     </div>
   );
 }
